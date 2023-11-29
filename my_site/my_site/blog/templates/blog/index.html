@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title  %}My Blog{% endblock  %}
+{% block css_files%}
+
+    <link rel="stylesheet" href="{%static 'blog/post.css' %}"> 
+    <link rel="stylesheet" href="{%static 'blog/index.css' %}">
+
+{% endblock%}
+
+{% block content  %} 
+<header id="main-navigatio">
+    <h1><a href="{% url 'starting-page'%}">Divine's Blog</a></h1>
+    <nav>
+        <a href="{% url "posts-page"%}">All Posts</a>
+    </nav>    
+</header> 
+
+    <section id = "welcome">
+        <header id="main-navigation">
+            <img src="{%static 'blog/images/divine.JPG'%}" alt= "divine - The Author Of This Blog" />
+            <h2> Divine's Blog</h2>
+        </header>
+        <p> Hi my name is divine and i love to blog about tech and the world!</p>
+
+    </section>
+
+    <section id = "latest-posts">
+       <h2> My latest thoughts</h2>
+       <ul>
+        {% for post in posts%}
+            {% include "blog/includes/post.html"%}
+        {% endfor %}
+        </ul>
+            
+    </section>
+
+    <section id="about">
+        <h2> What I do</h1>
+            <p>
+                i love programming ,i love to help myself and i want to be better
+                at coding in django.
+            </p> 
+            <p>
+                lorem issssues ...............................!!!!!!
+            </p>       
+    </section>    
+{% endblock  %}
