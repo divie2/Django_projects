@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title  %} 
+    All My Post
+{% endblock  %}
+{% block css_files%}
+
+    <link rel="stylesheet" href="{%static 'blog/post.css' %}">  
+    <link rel="stylesheet" href="{%static 'blog/all-posts.css' %}">
+
+{% endblock%}
+
+{% block content  %} 
+
+<section id = 'all-posts'>
+    <header id="main-navigatio">
+        <h1><a href="{% url 'starting-page'%}">Divine's Blog</a></h1>
+        <nav>
+            <a href="{% url "posts-page"%}">All Posts</a>
+        </nav> 
+    </section>     
+
+<section id = 'all-posts'>
+    <h2>My Collected Posts</h2>
+    <ul>
+        {% for post in al_posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>         
+{% endblock  %}
